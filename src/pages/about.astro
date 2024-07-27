@@ -1,4 +1,6 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
 
@@ -32,7 +34,7 @@ const skillColor = "navy";
       }
     </style>
   </head><body>
-    <Navigation />
+    <Header />
 
     <h1>{pageTitle}</h1>
     <p>My name is {identity.firstName}.</p>
@@ -55,5 +57,9 @@ const skillColor = "navy";
       I am doing this blog in order to learn astro but also talk a little about
       me as well as the programming language I am developing.
     </p>
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>
