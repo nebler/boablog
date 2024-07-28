@@ -14,13 +14,7 @@ const identity = {
 };
 ---
 
-<style>
-  .skill {
-    color: navy;
-  }
-</style>
-<BaseLayout>
-  <h1>{pageTitle}</h1>
+<BaseLayout pageTitle={pageTitle}>
   <p>My name is {identity.firstName}.</p>
   <p>I work as a {identity.position} in {identity.country}.</p>
   {

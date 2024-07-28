@@ -3,11 +3,10 @@ import BlogPosts from "../components/BlogPosts.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 const allPosts = await Astro.glob("./posts/*.md");
+const pageTitle = "The Boa Language";
 ---
 
-<BaseLayout>
-  <h1>The Boa language</h1>
-
+<BaseLayout pageTitle={pageTitle}>
   <p>This will be where I write about my programming language</p>
   <ul>
     {
