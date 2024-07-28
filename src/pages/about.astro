@@ -1,7 +1,5 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import Navigation from "../components/Navigation.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 
 const pageTitle = "About Me";
@@ -14,52 +12,33 @@ const identity = {
   hobbies: ["Coding & building fun projects", "Crossfit"],
   skills: ["Java", "Typescript", "JavaScript", "C++", "React", "SQL"],
 };
-
-const skillColor = "navy";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor }}>
-      h1 {
-        color: rgb(3, 132, 132);
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skillColor);
-        font-weight: bold;
-      }
-    </style>
-  </head><body>
-    <Header />
-
-    <h1>{pageTitle}</h1>
-    <p>My name is {identity.firstName}.</p>
-    <p>I work as a {identity.position} in {identity.country}.</p>
-    {
-      identity.hobbies.length >= 2 && (
-        <p>
-          Two of my main hobbies are: {identity.hobbies[0]} as well as
-          {identity.hobbies[1]}.
-        </p>
-      )
-    }
-    <p>Skills:</p>
-    <ul>
-      {identity.skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-    <ul></ul>
-    <h2>... and my new astro site!</h2>
-    <p>
-      I am doing this blog in order to learn astro but also talk a little about
-      me as well as the programming language I am developing.
-    </p>
-    <Footer />
-    <script>
-      import "../scripts/menu.js";
-    </script>
-  </body>
-</html>
+<style>
+  .skill {
+    color: navy;
+  }
+</style>
+<BaseLayout>
+  <h1>{pageTitle}</h1>
+  <p>My name is {identity.firstName}.</p>
+  <p>I work as a {identity.position} in {identity.country}.</p>
+  {
+    identity.hobbies.length >= 2 && (
+      <p>
+        Two of my main hobbies are: {identity.hobbies[0]} as well as
+        {identity.hobbies[1]}.
+      </p>
+    )
+  }
+  <p>Skills:</p>
+  <ul>
+    {identity.skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+  <ul></ul>
+  <h2>... and my new astro site!</h2>
+  <p>
+    I am doing this blog in order to learn astro but also talk a little about me
+    as well as the programming language I am developing.
+  </p>
+</BaseLayout>
